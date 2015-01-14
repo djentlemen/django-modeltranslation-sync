@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='django_trans_sync',
+    name='django-trans-sync',
     version='0.1',
     license='MIT',
 
@@ -13,13 +13,13 @@ setup(
     author_email='horak@styrax.info',
 
     description='',
-    long_description=open('README.md').read(),
+    long_description='',
     url='https://github.com/djentlemen/django-trans-sync',
 
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'django',
+        'django'
     ],
 
     classifiers=(
