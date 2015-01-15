@@ -17,6 +17,13 @@ class Command(NoArgsCommand):
         if not hasattr(settings, 'LOCALE_MODEL_TRANS'):
             raise CommandError("Settings has no attribute 'LOCALE_MODEL_TRANS'")
 
+        if not hasattr(settings, 'LOCALE_MODEL_TRANS_FILE'):
+            filename_po = "modeltranslation.po"
+        else:
+            filename_po = settings.LOCALE_MODEL_TRANS_FILE
+            if not filename_po.endswith(".po"):
+                filename_po += '.po'
+
         locale_path = settings.LOCALE_MODEL_TRANS
         if not isdir(locale_path):
             mkdir(locale_path)
@@ -39,6 +46,6 @@ class Command(NoArgsCommand):
             lang_path = join(locale_path, lang)
             if not isdir(lang_path):
                 mkdir(lang_path)
-            f = open(join(lang_path, "LC_MESSAGES", "modeltranslation.po"), "w")
+            f = open(join(lang_path, "LC_MESSAGES", filename_po), "w")
             write_po(f, catalog)
             f.close()
