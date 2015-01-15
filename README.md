@@ -11,8 +11,8 @@ This package contains two scripts to convert translated database fields to Porta
 2. Add ``modeltranslation_sync`` to ``INSTALLED_APPS``
 3. Add the following to your ``settings.py``:
     	
-	MODELTRANSLAION_LOCALE_PATH = "path.to.modeltrans.locale"
-    	MODELTRANSLAION_PO_FILE = "filename.po"
+	MODELTRANSLATION_LOCALE_PATH = "path.to.modeltrans.locale"
+    MODELTRANSLATION_PO_FILE = "filename.po"
 
 
 ## Usage
@@ -21,7 +21,7 @@ To convert translated model fields to .po file use the following command:
 
 	$ python manage.py save_trans
 
-To load translated string to database use the following command:
+To load translated strings to database use the following command:
 
 	$ python manage.py load_trans
 
