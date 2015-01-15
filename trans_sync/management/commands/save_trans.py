@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from os import mkdir
 from os.path import join, isdir
 
-from django.core.management.base import NoArgsCommand
+from django.core.management.base import NoArgsCommand, CommandError
 from django.conf import settings
 from modeltranslation.translator import translator
 from babel.messages.catalog import Catalog
@@ -13,6 +13,9 @@ from babel.messages.pofile import write_po
 class Command(NoArgsCommand):
 
     def handle(self, *args, **options):
+
+        if not hasattr(settings, 'LOCALE_MODEL_TRANS'):
+            raise CommandError("Settings has no attribute 'LOCALE_MODEL_TRANS'")
 
         locale_path = settings.LOCALE_MODEL_TRANS
         if not isdir(locale_path):
