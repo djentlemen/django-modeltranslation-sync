@@ -13,7 +13,7 @@ class Command(NoArgsCommand):
     def handle(self, *args, **options):
 
         if not hasattr(settings, 'MODELTRANSLATION_LOCALE_PATH'):
-            raise CommandError("Settings has no attribute 'LOCALE_MODEL_TRANS'")
+            raise CommandError("Settings has no attribute 'MODELTRANSLATION_LOCALE_PATH'")
 
         if not hasattr(settings, 'MODELTRANSLATION_PO_FILE'):
             filename_po = "modeltranslation.po"
