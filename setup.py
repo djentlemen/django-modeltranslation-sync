@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='django-trans-sync',
+    name='django-modeltranslation-sync',
     version='0.1',
     license='MIT',
 
@@ -14,12 +14,12 @@ setup(
 
     description='',
     long_description='',
-    url='https://github.com/djentlemen/django-trans-sync',
+    url='https://github.com/djentlemen/django-modeltranslation-sync',
 
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'django'
+        'django', 'django-modeltranslation',
     ],
 
     classifiers=(
